@@ -59,7 +59,8 @@
         // NOTE: this will eventually be removed when the Cookie can be set differently.
         await fetch(callbackUrl, {
           method: 'POST',
-          headers: new Headers({ 'Content-Type': 'application/json' }),
+          // Content-Type headers currently seem to break compatibility with SvelteKit
+          // headers: new Headers({ 'Content-Type': 'application/json' }),
           credentials: 'same-origin',
           body: JSON.stringify({ event, session })
         }).then((res) => {
